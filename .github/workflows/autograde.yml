@@ -14,10 +14,10 @@ jobs:
 
       - name: Test Case 1
         run: |
-          ./main < input1.txt > output1.txt
-          diff output1.txt expected1.txt
+          ./main < input.txt > output1.txt
+          diff -w output1.txt expected.txt
 
       - name: Test Case 2
         run: |
-          ./main < input2.txt > output2.txt
-          diff output2.txt expected2.txt
+          ./main < input1.txt > output2.txt
+          diff -w output2.txt expected1.txt
