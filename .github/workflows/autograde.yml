@@ -1,0 +1,23 @@
+name: Autograding
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Compile Code
+        run: g++ main.cpp -o main
+
+      - name: Test Case 1
+        run: |
+          ./main < input1.txt > output1.txt
+          diff output1.txt expected1.txt
+
+      - name: Test Case 2
+        run: |
+          ./main < input2.txt > output2.txt
+          diff output2.txt expected2.txt
